@@ -140,10 +140,6 @@ class COSMigrator:
     
     def connect_db(self):
         """连接数据库"""
-        # 临时跳过数据库连接，在流水线环境有连接问题
-        logger.info("Skipping database connection due to network issues in pipeline")
-        return
-        
         try:
             self.old_db = pymysql.connect(
                 host=OLD_DB_CONFIG['host'],
@@ -191,19 +187,11 @@ class COSMigrator:
     
     def get_project_id(self, project_key):
         """从旧数据库查询 project_id"""
-        # 只处理指定的测试项目
-        if project_key != 'AVwtPZpAWCxjRrneGB':
-            logger.warning(f"Skip: Only processing AVwtPZpAWCxjRrneGB, got {project_key}")
-            return None
-        
-        # 临时硬编码，流水线环境数据库连接有问题
-        logger.info(f"Using hardcoded project_id for {project_key}")
-        return 999999  # 替换成实际的 project_id
-            
         if project_key in self.project_cache:
             return self.project_cache[project_key]
         
         if not self.old_db:
+            logger.error(f"Old database not connected, cannot query project_id for {project_key}")
             return None
             
         try:
@@ -225,11 +213,8 @@ class COSMigrator:
     
     def insert_release_file(self, project_id, project_key, version, file_key, file_name, file_size, file_hash):
         """插入文件记录到新数据库"""
-        # 临时跳过数据库写入，流水线环境数据库连接有问题
-        logger.info(f"[SKIP DB] Would insert: project_id={project_id}, file_key={file_key}")
-        return True
-        
         if not self.new_db:
+            logger.error("New database not connected, cannot insert release file")
             return False
             
         try:
