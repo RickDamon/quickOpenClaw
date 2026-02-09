@@ -16,6 +16,7 @@ services:
       - .env
     environment:
       - TZ=Asia/Shanghai
+      - WORKSPACE_DIR=/workspace/clawd
     healthcheck:
       test: ["CMD", "curl", "-sf", "http://127.0.0.1:18789"]
       interval: 30s
