@@ -196,7 +196,7 @@ class COSMigrator:
             
         try:
             with self.old_db.cursor() as cursor:
-                sql = "SELECT id FROM taw_project WHERE project_key = %s"
+                sql = "SELECT id FROM tam_project WHERE project_key = %s"
                 cursor.execute(sql, (project_key,))
                 result = cursor.fetchone()
                 if result:
