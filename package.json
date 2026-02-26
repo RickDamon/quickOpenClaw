@@ -1,21 +1,21 @@
 {
-  "name": "clawbot",
+  "name": "quick-openclaw",
   "version": "1.0.0",
-  "description": "快速启动一个 ClawdBot 服务的 Docker 镜像。",
+  "description": "Quick start an OpenClaw AI service with Docker.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/RickDamon/clawBot.git"
+    "url": "git+https://github.com/RickDamon/quick-openclaw.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
   "bugs": {
-    "url": "https://github.com/RickDamon/clawBot/issues"
+    "url": "https://github.com/RickDamon/quick-openclaw/issues"
   },
-  "homepage": "https://github.com/RickDamon/clawBot#readme"
+  "homepage": "https://github.com/RickDamon/quick-openclaw#readme"
 }

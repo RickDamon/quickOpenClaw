@@ -40,7 +40,7 @@
       "model": {
         "primary": "${DEFAULT_MODEL:-deepseek/deepseek-chat}"
       },
-      "workspace": "${WORKSPACE_DIR:-~/clawbot-workspace}",
+      "workspace": "${WORKSPACE_DIR:-~/openclaw-workspace}",
       "compaction": {
         "mode": "safeguard"
       },
