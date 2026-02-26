@@ -2,8 +2,8 @@
 
 set -e
 
-mkdir -p ~/.clawdbot
-cp clawbot.json ~/.clawdbot/clawdbot.json
+mkdir -p ~/.openclaw
+cp openclaw.json ~/.openclaw/openclaw.json
 
 cat > /etc/nginx/nginx.conf <<EOF
 worker_processes 1;
@@ -73,20 +73,20 @@ EOF
 nginx
 
 
-clawdbot gateway --allow-unconfigured \
-  > clawdbot.log 2>&1 &
+openclaw gateway --allow-unconfigured \
+  > openclaw.log 2>&1 &
 
 PID=$!
-echo "[clawdbot] started, pid=$PID"
+echo "[openclaw] started, pid=$PID"
 
 for i in {1..120}; do
   if curl -sf http://127.0.0.1:18789 >/dev/null; then
-    echo "[clawdbot] service is up"
+    echo "[openclaw] service is up"
     exit 0
   fi
   sleep 1
 done
 
-echo "[clawdbot] startup timeout, last 50 lines of log:"
-tail -50 clawdbot.log
+echo "[openclaw] startup timeout, last 50 lines of log:"
+tail -50 openclaw.log
 exit 1

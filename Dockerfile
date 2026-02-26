@@ -8,7 +8,7 @@ RUN apt update && \
     apt install -y nginx curl git && \
     rm -rf /var/lib/apt/lists/*
 
-RUN npm i -g clawdbot && \
+RUN npm i -g openclaw@latest && \
     npm cache clean --force
 
 RUN useradd -m -s /bin/bash linuxbrew
@@ -17,7 +17,7 @@ RUN su - linuxbrew -c 'NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.g
 ENV PATH="/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:${PATH}"
 
 WORKDIR /workspace
-COPY clawbot.json start.sh ./
+COPY openclaw.json start.sh ./
 RUN chmod +x start.sh
 
 EXPOSE 8686

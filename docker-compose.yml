@@ -1,17 +1,17 @@
 version: '3.8'
 
 services:
-  clawbot:
+  openclaw:
     build: .
-    container_name: clawbot
+    container_name: openclaw
     restart: always
     ports:
       - "8686:8686"
     volumes:
       # Mount your workspace directory
       - ./workspace:/workspace/clawd
-      # Persist clawdbot data
-      - clawbot-data:/root/.clawdbot
+      # Persist openclaw data
+      - openclaw-data:/root/.openclaw
     env_file:
       - .env
     environment:
@@ -30,4 +30,4 @@ services:
         max-file: "3"
 
 volumes:
-  clawbot-data:
+  openclaw-data:

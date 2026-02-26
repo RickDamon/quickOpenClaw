@@ -1,4 +1,4 @@
-# clawBot
+# OpenClaw
 
 [English](#english) | [中文](#中文)
 
@@ -6,7 +6,7 @@
 
 # English
 
-Quick start a ClawdBot service with Docker.
+Quick start an OpenClaw service with Docker.
 
 ## Environment Variables
 
@@ -54,7 +54,7 @@ Quick start a ClawdBot service with Docker.
 ### 1. Build Image
 
 ```bash
-docker build -t clawbot .
+docker build -t openclaw .
 ```
 
 ### 2. Run with OpenAI
@@ -64,8 +64,8 @@ docker run -d \
   -p 8686:8686 \
   -e ACCESS_TOKEN="your-access-token" \
   -e OPENAI_API_KEY="sk-your-openai-key" \
-  --name clawbot \
-  clawbot
+  --name openclaw \
+  openclaw
 ```
 
 ### 3. Run with DeepSeek
@@ -76,8 +76,8 @@ docker run -d \
   -e ACCESS_TOKEN="your-access-token" \
   -e DEEPSEEK_API_KEY="sk-your-deepseek-key" \
   -e DEFAULT_MODEL="deepseek/deepseek-chat" \
-  --name clawbot \
-  clawbot
+  --name openclaw \
+  openclaw
 ```
 
 ### 4. Run with Anthropic Claude
@@ -88,8 +88,8 @@ docker run -d \
   -e ACCESS_TOKEN="your-access-token" \
   -e ANTHROPIC_API_KEY="sk-ant-your-anthropic-key" \
   -e DEFAULT_MODEL="anthropic/claude-sonnet-4-20250514" \
-  --name clawbot \
-  clawbot
+  --name openclaw \
+  openclaw
 ```
 
 ### 5. Run with Multiple Models
@@ -101,8 +101,8 @@ docker run -d \
   -e OPENAI_API_KEY="sk-your-openai-key" \
   -e ANTHROPIC_API_KEY="sk-ant-your-anthropic-key" \
   -e DEEPSEEK_API_KEY="sk-your-deepseek-key" \
-  --name clawbot \
-  clawbot
+  --name openclaw \
+  openclaw
 ```
 
 ### 6. Run with Telegram Integration
@@ -114,8 +114,8 @@ docker run -d \
   -e OPENAI_API_KEY="sk-your-openai-key" \
   -e TELEGRAM_BOT_TOKEN="your-bot-token" \
   -e TELEGRAM_CHAT_ID="your-chat-id" \
-  --name clawbot \
-  clawbot
+  --name openclaw \
+  openclaw
 ```
 
 ### 7. Access Service
@@ -144,16 +144,16 @@ First visit will redirect to the authenticated URL with token.
 1. Create a bot via `@BotFather` in Telegram and get the bot token
 2. Get your chat ID from `@userinfobot`
 3. Set `TELEGRAM_BOT_TOKEN` and `TELEGRAM_CHAT_ID` environment variables
-4. Restart ClawdBot
+4. Restart OpenClaw
 
-Now you can control ClawdBot from your phone via Telegram!
+Now you can control OpenClaw from your phone via Telegram!
 
 ## Project Structure
 
 ```
 .
 ├── Dockerfile        # Docker image build file
-├── clawbot.json      # ClawdBot configuration
+├── openclaw.json     # OpenClaw configuration
 ├── start.sh          # Startup script (Docker)
 ├── start-local.sh    # Local startup script
 ├── .env              # Environment variables
@@ -164,7 +164,7 @@ Now you can control ClawdBot from your phone via Telegram!
 
 # 中文
 
-快速启动一个 ClawdBot 服务的 Docker 镜像。
+快速启动一个 OpenClaw 服务的 Docker 镜像。
 
 ## 环境变量配置
 
@@ -212,7 +212,7 @@ Now you can control ClawdBot from your phone via Telegram!
 ### 1. 构建镜像
 
 ```bash
-docker build -t clawbot .
+docker build -t openclaw .
 ```
 
 ### 2. 运行容器（使用 OpenAI）
@@ -222,8 +222,8 @@ docker run -d \
   -p 8686:8686 \
   -e ACCESS_TOKEN="your-access-token" \
   -e OPENAI_API_KEY="sk-your-openai-key" \
-  --name clawbot \
-  clawbot
+  --name openclaw \
+  openclaw
 ```
 
 ### 3. 运行容器（使用 DeepSeek）
@@ -234,8 +234,8 @@ docker run -d \
   -e ACCESS_TOKEN="your-access-token" \
   -e DEEPSEEK_API_KEY="sk-your-deepseek-key" \
   -e DEFAULT_MODEL="deepseek/deepseek-chat" \
-  --name clawbot \
-  clawbot
+  --name openclaw \
+  openclaw
 ```
 
 ### 4. 运行容器（使用 Anthropic Claude）
@@ -246,8 +246,8 @@ docker run -d \
   -e ACCESS_TOKEN="your-access-token" \
   -e ANTHROPIC_API_KEY="sk-ant-your-anthropic-key" \
   -e DEFAULT_MODEL="anthropic/claude-sonnet-4-20250514" \
-  --name clawbot \
-  clawbot
+  --name openclaw \
+  openclaw
 ```
 
 ### 5. 运行容器（同时配置多个模型）
@@ -259,8 +259,8 @@ docker run -d \
   -e OPENAI_API_KEY="sk-your-openai-key" \
   -e ANTHROPIC_API_KEY="sk-ant-your-anthropic-key" \
   -e DEEPSEEK_API_KEY="sk-your-deepseek-key" \
-  --name clawbot \
-  clawbot
+  --name openclaw \
+  openclaw
 ```
 
 ### 6. 运行容器（启用 Telegram 联动）
@@ -272,8 +272,8 @@ docker run -d \
   -e OPENAI_API_KEY="sk-your-openai-key" \
   -e TELEGRAM_BOT_TOKEN="your-bot-token" \
   -e TELEGRAM_CHAT_ID="your-chat-id" \
-  --name clawbot \
-  clawbot
+  --name openclaw \
+  openclaw
 ```
 
 ### 7. 访问服务
@@ -302,13 +302,13 @@ docker run -d \
 1. 在 Telegram 中搜索 `@BotFather`，创建新 Bot 并获取 Token
 2. 搜索 `@userinfobot` 获取你的 Chat ID
 3. 设置环境变量 `TELEGRAM_BOT_TOKEN` 和 `TELEGRAM_CHAT_ID`
-4. 重启 ClawdBot
+4. 重启 OpenClaw
 
-配置完成后，你就可以通过手机 Telegram 远程控制 ClawdBot 了！
+配置完成后，你就可以通过手机 Telegram 远程控制 OpenClaw 了！
 
 ## 配置说明
 
-配置文件 `clawbot.json` 主要包含：
+配置文件 `openclaw.json` 主要包含：
 
 - **models**: 模型提供者配置（OpenAI、Anthropic、DeepSeek）
 - **agents**: Agent 默认配置（工作目录、并发数等）
@@ -321,7 +321,7 @@ docker run -d \
 ```
 .
 ├── Dockerfile        # Docker 镜像构建文件
-├── clawbot.json      # ClawdBot 配置文件
+├── openclaw.json     # OpenClaw 配置文件
 ├── start.sh          # 启动脚本（Docker 用）
 ├── start-local.sh    # 本地启动脚本
 ├── .env              # 环境变量配置

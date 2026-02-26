@@ -8,22 +8,22 @@ if [ -f .env ]; then
 fi
 
 # 创建配置目录
-mkdir -p ~/.clawdbot
+mkdir -p ~/.openclaw
 
 # 复制配置文件
-cp clawbot.json ~/.clawdbot/clawdbot.json
+cp openclaw.json ~/.openclaw/openclaw.json
 
-echo "Starting ClawdBot with DeepSeek..."
+echo "Starting OpenClaw with DeepSeek..."
 echo "Access Token: $ACCESS_TOKEN"
 echo "Default Model: $DEFAULT_MODEL"
 echo "DeepSeek API Key: ${DEEPSEEK_API_KEY:0:10}..."
 
-# 检查 clawdbot 是否已安装
-if ! command -v clawdbot &> /dev/null; then
-    echo "Installing clawdbot globally..."
-    npm install -g clawdbot
+# 检查 openclaw 是否已安装
+if ! command -v openclaw &> /dev/null; then
+    echo "Installing openclaw globally..."
+    npm install -g openclaw@latest
 fi
 
-# 启动 clawdbot
-echo "Starting ClawdBot gateway on port 18789..."
-clawdbot gateway --allow-unconfigured
+# 启动 openclaw
+echo "Starting OpenClaw gateway on port 18789..."
+openclaw gateway --allow-unconfigured

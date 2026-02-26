@@ -2,52 +2,6 @@
   "models": {
     "mode": "merge",
     "providers": {
-      "openai": {
-        "baseUrl": "${OPENAI_BASE_URL:-https://api.openai.com/v1}",
-        "apiKey": "${OPENAI_API_KEY}",
-        "api": "openai-completions",
-        "models": [
-          {
-            "id": "gpt-4o",
-            "name": "GPT-4o",
-            "reasoning": false,
-            "input": [
-              "text"
-            ]
-          },
-          {
-            "id": "gpt-4o-mini",
-            "name": "GPT-4o Mini",
-            "reasoning": false,
-            "input": [
-              "text"
-            ]
-          }
-        ]
-      },
-      "anthropic": {
-        "baseUrl": "${ANTHROPIC_BASE_URL:-https://api.anthropic.com}",
-        "apiKey": "${ANTHROPIC_API_KEY}",
-        "api": "anthropic-messages",
-        "models": [
-          {
-            "id": "claude-sonnet-4-20250514",
-            "name": "Claude Sonnet 4",
-            "reasoning": false,
-            "input": [
-              "text"
-            ]
-          },
-          {
-            "id": "claude-3-5-sonnet-20241022",
-            "name": "Claude 3.5 Sonnet",
-            "reasoning": false,
-            "input": [
-              "text"
-            ]
-          }
-        ]
-      },
       "deepseek": {
         "baseUrl": "${DEEPSEEK_BASE_URL:-https://api.deepseek.com/v1}",
         "apiKey": "${DEEPSEEK_API_KEY}",
@@ -84,9 +38,9 @@
   "agents": {
     "defaults": {
       "model": {
-        "primary": "${DEFAULT_MODEL:-openai/gpt-4o}"
+        "primary": "${DEFAULT_MODEL:-deepseek/deepseek-chat}"
       },
-      "workspace": "/workspace/clawd",
+      "workspace": "${WORKSPACE_DIR:-~/clawbot-workspace}",
       "compaction": {
         "mode": "safeguard"
       },
@@ -137,13 +91,6 @@
   "skills": {
     "install": {
       "nodeManager": "npm"
-    }
-  },
-  "channels": {
-    "telegram": {
-      "enabled": true,
-      "token": "${TELEGRAM_BOT_TOKEN}",
-      "allowedUsers": ["${TELEGRAM_CHAT_ID}"]
     }
   }
 }
