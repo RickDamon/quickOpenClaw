@@ -236,6 +236,14 @@ class COSMigrator:
             self.new_db.rollback()
             return False
     
+    def file_exists_in_new_bucket(self, new_key):
+        """检查文件是否已存在于新桶（HEAD 请求，不下载内容）"""
+        try:
+            self.cos_client.head_object(Bucket=NEW_BUCKET, Key=new_key)
+            return True
+        except Exception:
+            return False
+    
     def copy_file(self, old_key, new_key):
         """复制文件从旧桶到新桶"""
         try:
@@ -313,6 +321,12 @@ class COSMigrator:
                     if dry_run:
                         logger.info(f"[DRY RUN] {old_key} -> {new_key}")
                         success_count += 1
+                        continue
+                    
+                    # 检查新桶是否已存在该文件，存在则跳过（支持 CronJob 增量迁移）
+                    if self.file_exists_in_new_bucket(new_key):
+                        logger.info(f"Skip (already exists): {new_key}")
+                        skip_count += 1
                         continue
                     
                     # 复制文件

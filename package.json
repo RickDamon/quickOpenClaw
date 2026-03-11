@@ -1,5 +1,5 @@
 {
-  "name": "quick-openclaw",
+  "name": "quickOpenClaw",
   "version": "1.0.0",
   "description": "Quick start an OpenClaw AI service with Docker.",
   "main": "index.js",
@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/RickDamon/quick-openclaw.git"
+    "url": "git+https://github.com/RickDamon/quickOpenClaw.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
   "bugs": {
-    "url": "https://github.com/RickDamon/quick-openclaw/issues"
+    "url": "https://github.com/RickDamon/quickOpenClaw/issues"
   },
-  "homepage": "https://github.com/RickDamon/quick-openclaw#readme"
+  "homepage": "https://github.com/RickDamon/quickOpenClaw#readme"
 }
