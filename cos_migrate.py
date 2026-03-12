@@ -38,8 +38,8 @@ COS_REGION = os.environ.get('COS_REGION', 'ap-guangzhou')
 
 # 旧桶（源）
 OLD_BUCKET = os.environ.get('OLD_BUCKET', 'tamprod-1258344699')
-# 灰度测试：只迁移指定 project_key 的文件，全量迁移时改回 'sourcemap/'
-OLD_PREFIX = os.environ.get('OLD_PREFIX', 'sourcemap/AVwtPZpAWCxjRrneGB/')
+# 全量迁移 'sourcemap/'
+OLD_PREFIX = os.environ.get('OLD_PREFIX', 'sourcemap/')
 
 # 新桶（目标）
 NEW_BUCKET = os.environ.get('NEW_BUCKET', 'rumprod-1258344699')
