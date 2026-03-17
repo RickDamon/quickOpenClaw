@@ -328,8 +328,13 @@ class COSMigratorV2:
             # Get real file hash first (lightweight HEAD request, no download needed for most files)
             file_hash = self._get_real_file_hash(old_key)
 
-            # CopySource format: '{bucket}.cos.{region}.myqcloud.com/{key}'
-            copy_source = f"{OLD_BUCKET}.cos.{COS_REGION}.myqcloud.com/{old_key}"
+            # Use dict format for CopySource (more reliable than string format,
+            # avoids parsing issues with long keys or special characters)
+            copy_source = {
+                'Bucket': OLD_BUCKET,
+                'Key': old_key,
+                'Region': COS_REGION,
+            }
 
             self.cos_client.copy_object(
                 Bucket=NEW_BUCKET,
